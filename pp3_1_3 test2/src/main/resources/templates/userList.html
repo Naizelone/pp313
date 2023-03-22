@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+<H2> All users:</H2>
+<br><br>
+<table border="3">
+     <tbody>
+    <tr>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Age </th>
+        <th> Salary </th>
+        <th> Email</th>
+        <th>Operation</th>
+    </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.name}"> </td>
+            <td th:text="${user.surname}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.salary}"></td>
+            <td th:text="${user.email}"></td>
+            <td><form th:method="PATCH" th:action="@{/admin/updateInfo?userId={id}(id=${user.getId()})}">
+                <input type="submit" value="Update">
+            </form>
+                <form th:method="DELETE" th:action="@{/admin/deleteInfo?userId={id}(id=${user.getId()})}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+    </thEach>
+
+    </tbody>
+</table>
+<br>
+<input type="button" value="Add user"
+       onclick="window.location.href = 'addUser'">
+
+<br>
+<br>
+<input type="button" value="Log out"
+       onclick="window.location.href = 'http://localhost:8080/logout'">
+
+</body>
+</html>

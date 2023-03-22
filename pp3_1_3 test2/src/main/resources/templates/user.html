@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<table border="3">
+   <tbody>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.surname}"></td>
+    <td th:text="${user.age}"></td>
+    <td th:text="${user.email}"></td>
+    </tbody>
+</table>
+<input type="button" value="Log out"
+       onclick="window.location.href = 'http://localhost:8080/logout'">
+
+
+</body>
+</html>
